@@ -1,0 +1,250 @@
+//
+// Posts List Post
+// --------------------------------------------------
+
+
+// Post unread border
+.post-new .panel-default {
+  border-color: @brand-warning;
+}
+
+
+// Post header
+.post-heading-container {
+  overflow: visible;
+  height: 22px;
+
+  &>* {
+    float: left;
+    margin-left: 0px;
+    margin-right: 8px;
+
+    &.pull-right {
+      float: right;
+      margin-left: 8px;
+      margin-right: 0px;
+    }
+  }
+}
+
+.post-heading .label {
+  position: relative;
+  top: 3px;
+}
+
+.post-heading .btn-sm {
+  margin-top: -3px;
+  margin-bottom: 0px;
+  padding: 4px @padding-small-horizontal;
+}
+
+.post-heading .btn-icon {
+  margin: -6px 0px;
+  margin-left: 8px;
+  padding: 0px 3px;
+
+  .material-icon {
+    position: static;
+
+    width: 28px;
+    height: 28px;
+
+    font-size: 28px;
+    line-height: 28px;
+  }
+}
+
+
+// Post status flags
+.post-status-message {
+  padding: @padding-base-vertical @padding-base-horizontal;
+  overflow: auto;
+
+  .material-icon {
+    float: left;
+
+    font-size: 28px;
+  }
+
+  p {
+    margin: 0px;
+    margin-top: (28px - @line-height-computed) / 2;
+    margin-left: 36px;
+  }
+}
+
+
+.post-status-hidden {
+  background-color: @brand-danger;
+  color: #fff;
+}
+
+
+.post-status-unapproved {
+  background-color: @brand-primary;
+  color: #fff;
+}
+
+
+.post-status-protected {
+  background-color: @gray;
+  color: #fff;
+}
+
+
+// Hidden post message
+.posts-list .panel-body-hidden {
+  .lead, .text-muted {
+    margin: 0px;
+  }
+}
+
+// Invalid post message
+.posts-list .panel-body-invalid {
+  .lead, .text-muted {
+    margin: 0px;
+  }
+}
+
+
+// Post attachments
+.post-attachments {
+  @post-preview-width: 40px;
+
+  td {
+    position: @padding-base-vertical @padding-base-horizontal;
+  }
+
+  .post-attachment-preview {
+    float: left;
+    height: @post-preview-width;
+    width: @post-preview-width;
+
+    text-align: center;
+  }
+
+  .post-attachment {
+    margin-left: @post-preview-width + 12px;
+  }
+
+  .post-thumbnail {
+    display: block;
+    background-size: cover;
+    background-position: center;
+    border-radius: @border-radius-small;
+    width: @post-preview-width;
+    height: @post-preview-width;
+  }
+
+  .material-icon {
+    width: 28px;
+    height: 28px;
+
+    position: relative;
+    top: 5px;
+
+    font-size: 28px;
+    line-height: 28px;
+
+    &:link, &:active, &:visited, &:hover, &:focus {
+      color: @gray-darker;
+      text-decoration: none;
+    }
+  }
+
+  .post-attachment-description {
+    margin: 0px;
+    padding: 0px;
+
+    color: @text-muted;
+    font-size: @font-size-small;
+  }
+}
+
+
+// Post footer
+.post-footer {
+  overflow: auto;
+
+  .btn.pull-right {
+    margin-left: @line-height-computed / 2;
+  }
+
+  p.pull-left {
+    margin: 0px;
+    margin-left: @line-height-computed / 2;
+    padding: (@padding-base-vertical + 1px) 0px;
+  }
+}
+
+
+// UI Preview
+.posts-list.ui-preview {
+  .post-heading .ui-preview-text {
+    position: relative;
+    top: 0px;
+  }
+}
+
+
+// Mobile tweaks
+@media screen and (max-width: @screen-xs-max) {
+  .post-heading .post-heading-container {
+    margin-left: 46px;
+    height: 34px;
+
+    position: relative;
+    bottom: 2px;
+
+    .pull-right {
+      margin-top: -31px;
+    }
+  }
+
+  .post-heading .user-status {
+    margin-right: 3px;
+  }
+
+  .post-heading {
+    .posted-on-compact, .edited-compact, .unread-compact {
+      margin-top: -14px;
+
+      font-size: @font-size-small;
+    }
+  }
+
+  .post-heading .unread-compact {
+    color: @brand-warning;
+  }
+
+  .post-heading .posted-on-compact {
+    clear: left;
+  }
+
+  .post-heading .btn-icon {
+    margin-top: 0px;
+    margin-bottom: 0px;
+    padding: 1px 4px;
+  }
+
+  .post-heading .post-avatar-sm {
+    float: left;
+
+    img {
+      width: 35px;
+      height: 35px;
+    }
+  }
+
+  .post-footer {
+    .btn, p {
+      font-size: @font-size-small;
+    }
+
+    p .material-icon {
+      margin-right: 3px;
+      position: relative;
+      bottom: 1px;
+    }
+  }
+}
