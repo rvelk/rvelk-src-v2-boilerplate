@@ -1,11 +1,9 @@
-import OrderedList from 'misago/utils/ordered-list';
-
 import React from 'react';
 import ReactDOM from 'react-dom';
 
-import Sidebar from 'misago/components/sidebar/sidebar';
-import MaterialTitlePanel from 'misago/components/sidebar/material_title_panel';
-import SidebarContent from 'misago/components/sidebar/sidebar_content';
+import Sidebar from '../../src';
+import MaterialTitlePanel from './material_title_panel';
+import SidebarContent from './sidebar_content';
 
 const styles = {
   contentHeaderMenuLink: {
@@ -118,63 +116,3 @@ const App = React.createClass({
 });
 
 ReactDOM.render(<App />, document.getElementById('example'));
-
-
-export class Misago {
-  constructor() {
-    this._initializers = [];
-    this._context = {};
-  }
-
-  addInitializer(initializer) {
-    this._initializers.push({
-      key: initializer.name,
-
-      item: initializer.initializer,
-
-      after: initializer.after,
-      before: initializer.before
-    });
-  }
-
-  init(context) {
-    this._context = context;
-
-    var initOrder = new OrderedList(this._initializers).orderedValues();
-    initOrder.forEach(initializer => {
-      initializer(this);
-    });
-  }
-
-  // context accessors
-  has(key) {
-    return !!this._context[key];
-  }
-
-  get(key, fallback) {
-    if (this.has(key)) {
-      return this._context[key];
-    } else {
-      return fallback || undefined;
-    }
-  }
-
-  pop(key) {
-    if (this.has(key)) {
-      let value = this._context[key];
-      this._context[key] = null;
-      return value;
-    } else {
-      return undefined;
-    }
-  }
-}
-
-// create  singleton
-var misago = new Misago();
-
-// expose it globally
-global.misago = misago;
-
-// and export it for tests and stuff
-export default misago;

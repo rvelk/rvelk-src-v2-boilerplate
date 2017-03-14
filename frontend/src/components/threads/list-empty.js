@@ -22,8 +22,8 @@ export default class extends React.Component {
           <li className="list-group-item empty-message">
             <p className="lead">
               {this.props.category.special_role
-                ? gettext("There are no threads on this forum... yet!")
-                : gettext("There are no threads in this category.")}
+                ? gettext("There are no posts on this forum... yet!")
+                : gettext("There are no posts in this category.")}
             </p>
             <p>
               {gettext("Why not start one yourself?")}
